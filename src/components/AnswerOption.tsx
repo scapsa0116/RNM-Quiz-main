@@ -16,10 +16,10 @@ export default function AnswerOption(){
 const styles = StyleSheet.create({
  answer:{
     borderWidth:1,
-    borderColor: '#0d0c0cff',
+    borderColor: 'lightgrey',
     borderRadius: 20,
     padding:20,
-    
+
     
 
  }

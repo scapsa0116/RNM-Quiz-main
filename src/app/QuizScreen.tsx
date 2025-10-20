@@ -2,11 +2,18 @@ import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import QuestionCard from '../components/QuestionCard';
 export default function QuizScreen() {
 
+  //responsible for the entire screen container
+
 
   return(
-    <View style = {styles.container}>
-     <QuestionCard/>
+    <SafeAreaView style = {styles.container}>
+    <View >
+      <View><Text>Header</Text></View>
+      <QuestionCard/>
+     
+     <View><Text>Footer</Text></View>
       </View>
+      </SafeAreaView>
   )
 }
   
@@ -14,9 +21,10 @@ export default function QuizScreen() {
 const styles = StyleSheet.create({
 
 container:{
-  backgroundColor: '#fff',
+  
+  backgroundColor: '#FDFEF4',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   marginTop: 200,
   padding: 20,
   

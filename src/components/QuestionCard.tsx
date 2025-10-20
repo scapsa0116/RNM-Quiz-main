@@ -26,7 +26,7 @@ export default function QuestionCard (){
 const styles = StyleSheet.create({
 
 container: {
-backgroundColor: '#f5eeeeff',
+backgroundColor: '#fff',
 padding:20,
 borderRadius: 20,
 height: 450,
