@@ -7,16 +7,19 @@ export default function QuizScreen() {
 
   return(
     <SafeAreaView style = {styles.page}>
+      <View>
   
-      <View style = {styles.header}><Text style = {styles.text}>Header</Text></View>
+      <View style = {styles.header}><Text>Header</Text></View>
 
-      <View style = {styles.time}> 
+      <View > 
       <QuestionCard/>
-      <Text>20 s</Text>
+      <Text style = {styles.time}>20 s</Text>
       </View>
      
-     <View style = {styles.footer}><Text style = {styles.text}>Footer</Text></View>
-      
+     <View style = {styles.button}>
+      <Text style = {styles.textButton}>Next</Text>
+      </View>
+      </View>
       </SafeAreaView>
   )
 }
@@ -28,27 +31,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDFEF4',
     alignItems: 'center',
     justifyContent: 'space-between',
-
-  
   },
 
 header:{
     marginTop: 100,
     marginBottom: 50,
+    alignItems: 'center',
     
 },
 
-text:{
-textAlign: 'center',
-    color: '005055'
-}, 
-
-footer:{
+button:{
     marginTop: 50,
     marginBottom: 50,
+    borderRadius:100,
+    backgroundColor: 'rgb(0,81,85)',
+    padding:20,
 },
+
+textButton:{
+textAlign: 'center',
+color: 'white',
+}, 
+
 time:{
   textAlign: 'center',
-  marginTop: 15
+  marginTop: 15,
+  fontWeight: 'bold',
+  color: 'rgb(0,81,85)'
 }
 })
