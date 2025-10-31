@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import QuestionCard from '../components/QuestionCard';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome';
 export default function QuizScreen() {
 
   //responsible for the entire screen container
@@ -16,9 +17,22 @@ export default function QuizScreen() {
       <Text style = {styles.time}>20 s</Text>
       </View>
      
-     <View style = {styles.button}>
-      <Text style = {styles.textButton}>Next</Text>
-      </View>
+     <Pressable style = {styles.button} onPress = {() => console.warn('pressed')} onLongPress = {() => console.warn('ON LONG PRESS')}>
+      
+      
+        <Text style = {styles.textButton}>Next</Text>
+         <FontAwesome6
+         name = "arrow-right-long"
+         size={16}
+         color="white"
+         style={styles.buttonIcon}
+         
+        />
+    
+      
+      
+      </Pressable>
+      
       </View>
       </SafeAreaView>
   )
@@ -39,24 +53,38 @@ header:{
     alignItems: 'center',
     
 },
-
-button:{
-    marginTop: 50,
-    marginBottom: 50,
-    borderRadius:100,
-    backgroundColor: 'rgb(0,81,85)',
-    padding:20,
-},
-
-textButton:{
-textAlign: 'center',
-color: 'white',
-}, 
-
 time:{
   textAlign: 'center',
   marginTop: 15,
   fontWeight: 'bold',
   color: 'rgb(0,81,85)'
+},
+
+button:{
+    marginTop: 30,
+    marginBottom: 50,
+    borderRadius:100,
+    backgroundColor: 'rgb(0,81,85)',
+    padding:15,
+    justifyContent: 'center',
+    alignItems: 'center'
+},
+
+textButton:{
+
+color: 'white',
+fontWeight:500,
+fontSize:16,
+letterSpacing: 1.5,
+
+}, 
+
+
+
+buttonIcon:{
+  position: 'absolute',
+  right:20
+  
+  
 }
 })
