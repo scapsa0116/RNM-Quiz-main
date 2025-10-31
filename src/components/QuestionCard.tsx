@@ -3,17 +3,19 @@ import AnswerOption from "./AnswerOption"
 
 //this component is about the container of the questions
 
-export default function QuestionCard (){
+export default function QuestionCard (props){
+
+    console.log(props)
 
 
     return(
         <View style ={styles.container}>
-            <Text style = {styles.question}>What is React Native?</Text>
+            <Text style = {styles.question}>{props.question.title}</Text>
             <View style = {styles.answer}>
-                <View style = {styles.answer}><AnswerOption/></View>
-                <View style = {styles.answer}><AnswerOption/></View>
-                <View style = {styles.answer}><AnswerOption/></View>
-                <View style = {styles.answer}><AnswerOption/></View>
+                <View style = {styles.answer}><AnswerOption option ={props.question.options[0]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={props.question.options[1]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={props.question.options[2]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={props.question.options[3]}/></View>
             </View>
         </View>
     )

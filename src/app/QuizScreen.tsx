@@ -1,19 +1,22 @@
 import { View, Text, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import QuestionCard from '../components/QuestionCard';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome';
+import questions from '../questions';
 export default function QuizScreen() {
 
   //responsible for the entire screen container
+
+  const question = questions[0]
 
 
   return(
     <SafeAreaView style = {styles.page}>
       <View>
   
-      <View style = {styles.header}><Text>Header</Text></View>
+      <View style = {styles.header}><Text>Question 1/5</Text></View>
 
       <View > 
-      <QuestionCard/>
+      <QuestionCard question = {question}/>
       <Text style = {styles.time}>20 s</Text>
       </View>
      
