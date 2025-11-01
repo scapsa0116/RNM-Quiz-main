@@ -2,20 +2,26 @@ import { View, Text, StyleSheet } from "react-native"
 import AnswerOption from "./AnswerOption"
 
 //this component is about the container of the questions
+type QuestionCard= {
+    question:{
+        title:string;
+        option: string[];
 
-export default function QuestionCard (props){
+    }
+}
+export default function QuestionCard ({question}: QuestionCard){
 
-    console.log(props)
+
 
 
     return(
         <View style ={styles.container}>
-            <Text style = {styles.question}>{props.question.title}</Text>
+            <Text style = {styles.question}>{question.title}</Text>
             <View style = {styles.answer}>
-                <View style = {styles.answer}><AnswerOption option ={props.question.options[0]}/></View>
-                <View style = {styles.answer}><AnswerOption option ={props.question.options[1]}/></View>
-                <View style = {styles.answer}><AnswerOption option ={props.question.options[2]}/></View>
-                <View style = {styles.answer}><AnswerOption option ={props.question.options[3]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={question.options[0]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={question.options[1]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={question.options[2]}/></View>
+                <View style = {styles.answer}><AnswerOption option ={question.options[3]}/></View>
             </View>
         </View>
     )

@@ -2,14 +2,18 @@ import { View, Text, StyleSheet } from "react-native";
 //Responsible for each answer option
 // option is bringing the props from Question card component
 
+type AnswerOption = {
+    option: string;
+}
 
-export default function AnswerOption(props){
-    console.log(props, 'answerOption')
+
+export default function AnswerOption({option}: AnswerOption){
+    console.log(option, 'answerOption')
 
 
     return (
         <View style = {styles.answer}>
-            <Text>{props.option}</Text>
+            <Text>{option}</Text>
         </View>
     )
 }
