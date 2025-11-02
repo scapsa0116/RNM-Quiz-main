@@ -1,27 +1,29 @@
 import { View, Text, StyleSheet } from "react-native"
 import AnswerOption from "./AnswerOption"
-
+import { Question } from "../types"
 //this component is about the container of the questions
-type QuestionCard= {
-    question:{
-        title:string;
-        option: string[];
 
-    }
+
+type QuestionCard= {
+    question: Question
 }
 export default function QuestionCard ({question}: QuestionCard){
+    const selectedOption = question.options[0];
 
+    const onOptionSelected = (option: string) => {
 
+        console.warn('Pressed: ', option)
+    }
 
 
     return(
         <View style ={styles.container}>
             <Text style = {styles.question}>{question.title}</Text>
             <View style = {styles.answer}>
-                <View style = {styles.answer}><AnswerOption option ={question.options[0]}/></View>
-                <View style = {styles.answer}><AnswerOption option ={question.options[1]}/></View>
-                <View style = {styles.answer}><AnswerOption option ={question.options[2]}/></View>
-                <View style = {styles.answer}><AnswerOption option ={question.options[3]}/></View>
+
+                {question.options.map((option) => 
+                <View style = {styles.answer}><AnswerOption key = {option} option ={option} isSelected = {option === selectedOption} onPress ={() => onOptionSelected(option)}/></View>)}
+               
             </View>
         </View>
     )
