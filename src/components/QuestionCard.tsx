@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native"
 import AnswerOption from "./AnswerOption"
 import { Question } from "../types"
+import Card from "./Card"
 //this component is about the container of the questions
 
 
@@ -17,15 +18,24 @@ export default function QuestionCard ({question}: QuestionCard){
 
 
     return(
-        <View style ={styles.container}>
-            <Text style = {styles.question}>{question.title}</Text>
+       
+          
+            <Card title = {question.title}>
             <View style = {styles.answer}>
-
-                {question.options.map((option) => 
-                <View style = {styles.answer}><AnswerOption key = {option} option ={option} isSelected = {option === selectedOption} onPress ={() => onOptionSelected(option)}/></View>)}
-               
+                {question.options.map((option) =>  //we can name item or i as option, and replace every question.option with just option, and add the key
+                <View style = {styles.answer}>
+                    {/* in conmponent is an other component is passing as props name children */}
+                    <AnswerOption 
+                    key = {option}
+                    option ={option} 
+                    isSelected = {option === selectedOption} 
+                    onPress ={() => onOptionSelected(option)}/></View>)}
+                {/* <View style = {styles.answer}><AnswerOption option ={question.options[1]} isSelected = {question.options[1] === selectedOption} onPress ={() => onOptionSelected(question.options[1])}/></View>
+                <View style = {styles.answer}><AnswerOption option ={question.options[2]} isSelected = {question.options[2] === selectedOption} onPress ={() => onOptionSelected(question.options[2])}/></View>
+                <View style = {styles.answer}><AnswerOption option ={question.options[3]} isSelected = {question.options[3] === selectedOption} onPress ={() => onOptionSelected(question.options[3])}/></View> */}
             </View>
-        </View>
+            </Card>
+       
     )
 }
 
@@ -34,30 +44,6 @@ export default function QuestionCard ({question}: QuestionCard){
 
 
 const styles = StyleSheet.create({
-
-container: {
-backgroundColor: '#fff',
-padding:20,
-borderRadius: 20,
-height: 450,
-width: 350,
-alignItems: 'center',
-shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 6,
-},
-shadowOpacity: 0.39,
-shadowRadius: 8.30,
-
-elevation: 13,
-},
- question:{
-    fontSize: 24,
-    fontWeight: '500',
-    
- },
-
 answer:{
    padding: 10,
 width: 300,
