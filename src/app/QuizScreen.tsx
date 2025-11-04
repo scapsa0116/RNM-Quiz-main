@@ -22,6 +22,7 @@ export default function QuizScreen() {
      title = 'Next' 
      onPress = {()=> {console.warn('I am pressed')}}
      onLongPress= {() => {console.warn('I am a long press!!!')}}
+   
      rightIcon = {<FontAwesome6 name = "arrow-right-long" size={16} color="white"/>}/>
       </View>
       </SafeAreaView>

@@ -1,19 +1,26 @@
-import { View, Text, Pressable, StyleSheet } from "react-native"
-import { Icon } from "@expo/vector-icons/build/createIconSet";
+import { View, Text, Pressable, StyleSheet} from "react-native"
+import { ComponentProps } from "react";
 
 type CustomButton = {
     title: string,
     rightIcon?: React.ReactNode
-    onPress: () => void;
-    onLongPress: () => void;
-}
+   
+} & ComponentProps<typeof Pressable>;
 
-export default function CustomButton ({title, rightIcon, onPress, onLongPress}: CustomButton){
+//...pressable props is called the rest operation that is comming from PressableProps
+
+export default function CustomButton ({title, rightIcon, ...pressableProps}: CustomButton){
 
 
     return (
        //on press is a callback function from QuizScreen component
-         <Pressable style = {styles.button} onPress = {onPress} onLongPress = {onLongPress}>
+         <Pressable 
+         style = {styles.button}
+         {...pressableProps}
+         //...pressableProps is replacing all the bellow press options
+        //  onPress = {onPress} 
+        //  onLongPress = {onLongPress}
+         >
         <Text style = {styles.textButton}>{title}</Text>
         <View style={styles.buttonIcon}>
          {rightIcon}

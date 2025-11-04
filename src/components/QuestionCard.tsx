@@ -10,9 +10,7 @@ type QuestionCard= {
 }
 export default function QuestionCard ({question}: QuestionCard){
     const selectedOption = question.options[0];
-
     const onOptionSelected = (option: string) => {
-
         console.warn('Pressed: ', option)
     }
 
