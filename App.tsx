@@ -1,13 +1,13 @@
-import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import QuizScreen from './src/app/QuizScreen';
+import QuizContextProvider from './src/providers/QuizProvider';
 
 
 export default function App() {
   return (
-  <View>
+  <QuizContextProvider>
         <QuizScreen />
       <StatusBar style="auto" />
-   </View>
+   </QuizContextProvider>
   );
 }

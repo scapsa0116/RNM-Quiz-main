@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet} from "react-native"
+import { useState } from "react"
 import AnswerOption from "./AnswerOption"
 import { Question } from "../types"
 import Card from "./Card"
@@ -9,8 +10,12 @@ type QuestionCard= {
     question: Question
 }
 export default function QuestionCard ({question}: QuestionCard){
-    const selectedOption = question.options[0];
+    const [selectedOption, setSelectedOption] = useState<string | undefined>()
+// selectedOption - state variable name
+// setSelectedOption - setter
+    
     const onOptionSelected = (option: string) => {
+        setSelectedOption(option)
         console.warn('Pressed: ', option)
     }
 
